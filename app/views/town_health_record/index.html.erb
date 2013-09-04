@@ -1,0 +1,14 @@
+ <%= form_for @current_query, url: town_health_records_path do |f| %>
+   <%= f.text_field :town %>
+   <%= f.submit %>
+   <% end %>
+
+
+<ul>
+<% @records.each do |record| %>
+
+  <li> <%= record.town %> </li>
+<% end %>
+</ul>
+
+

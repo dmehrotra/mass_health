@@ -1,0 +1,2 @@
+module TownHealthRecordHelper
+end
