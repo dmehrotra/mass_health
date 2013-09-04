@@ -16,11 +16,12 @@
     <option value = 'multiple_births'>% multiple births, 2005-2008</option>
     <option value = 'publicly_financed_prenatal'>% publicly financed prenatal care, 2005-2008</option>
     <option value = 'teen_preg'>% teen births, 2005-2008</option>".html_safe %>
-  <%= text_field_tag 'input' %>
+  
 
-  <%= label_tag 'Limit Search Amount:' %>
-  <%= text_field_tag 'limit', 'Enter a number' %>
-
+    <%= label_tag 'Limit Search Amount:' %>
+    <%= text_field_tag 'limit', 'Enter a number' %>
+    <%= select_tag 'sort_order',  "<option value = 'ASC'>Ascending</option>
+    <option value = 'DESC'> Descending </option>".html_safe  %>
   <%= submit_tag("Click") %>
 <% end %>
 
