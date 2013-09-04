@@ -1,21 +1,21 @@
 
 
 <%= form_tag( '/', method: 'get' ) do %>
-<%= select_tag 'column_select', "    <option>Geography</option>
-    <option>total pop, year 2005</option>
-    <option>age 0-19, year 2005</option>
-    <option>age 65+, year 2005</option>
-    <option>Per Capita Income, year 2000</option>
-    <option>Persons Living Below 200% Poverty, year 2000</option>
-    <option>% all Persons Living Below 200% Poverty Level, year 2000</option>
-    <option>% adequacy prenatal care (kotelchuck)</option>
-    <option>% C-section deliveries, 2005-2008</option>
-    <option>Number of infant deaths, 2005-2008</option>
-    <option>Infant mortality rate (deaths per 1000 live births), 2005-2008</option>
-    <option>% low birthweight 2005-2008</option>
-    <option>% multiple births, 2005-2008</option>
-    <option>% publicly financed prenatal care, 2005-2008</option>
-    <option>% teen births, 2005-2008</option>".html_safe %>
+<%= select_tag 'column_select', "    <option value = 'town'>Geography</option>
+    <option value = 'total_population'>total pop, year 2005</option>
+    <option value = 'youth_population'>age 0-19, year 2005</option>
+    <option value = 'elder_population'>age 65+, year 2005</option>
+    <option value = 'income'>Per Capita Income, year 2000</option>
+    <option value = 'poverty'>Persons Living Below 200% Poverty, year 2000</option>
+    <option value = 'poverty_percentage'>% all Persons Living Below 200% Poverty Level, year 2000</option>
+    <option value = 'prenatal_care'>% adequacy prenatal care (kotelchuck)</option>
+    <option value = 'c_section'>% C-section deliveries, 2005-2008</option>
+    <option value = 'infant_deaths'>Number of infant deaths, 2005-2008</option>
+    <option value = 'infant_mortality'>Infant mortality rate (deaths per 1000 live births), 2005-2008</option>
+    <option value = 'low_birthweight' >% low birthweight 2005-2008</option>
+    <option value = 'multiple_births'>% multiple births, 2005-2008</option>
+    <option value = 'publicly_financed_prenatal'>% publicly financed prenatal care, 2005-2008</option>
+    <option value = 'teen_preg'>% teen births, 2005-2008</option>".html_safe %>
   <%= text_field_tag 'input' %>
 
   <%= label_tag 'Limit Search Amount:' %>

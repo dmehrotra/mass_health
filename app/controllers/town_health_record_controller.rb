@@ -3,10 +3,11 @@ class TownHealthRecordController < ApplicationController
   include TownHealthRecordHelper
 
   def index
-    choice = get_choice( params[:column_select] )
-    if params[:column] &&
-       params[:column].length > 0
-      @records = TownHealthRecord.where( choice.to_sym params[:column] )
+  
+    if params[:column_select] &&
+       params[:column_select].length > 0
+      @records = TownHealthRecord.order(params[:column_select].to_sym).limit(params[:limit].to_i)
+    
     else
       @records = TownHealthRecord.limit(params[:limit].to_i + 2)
     end
