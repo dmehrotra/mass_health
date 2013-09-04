@@ -3,11 +3,43 @@
   <%= submit_tag("Click") %>
 <% end %>
 
-<ul>
-<% @records.each do |record| %>
-
-  <li> <%= record.town %> </li>
-<% end %>
-</ul>
+<table>
+  <tr>
+    <th>Geography</th>
+    <th>total pop, year 2005</th>
+    <th>age 0-19, year 2005</th>
+    <th>age 65+, year 2005</th>
+    <th>Per Capita Income, year 2000</th>
+    <th>Persons Living Below 200% Poverty, year 2000</th>
+    <th>% all Persons Living Below 200% Poverty Level, year 2000</th>
+    <th>% adequacy prenatal care (kotelchuck)</th>
+    <th>% C-section deliveries, 2005-2008</th>
+    <th>Number of infant deaths, 2005-2008</th>
+    <th>Infant mortality rate (deaths per 1000 live births), 2005-2008</th>
+    <th>% low birthweight 2005-2008</th>
+    <th>% multiple births, 2005-2008</th>
+    <th>% publicly financed prenatal care, 2005-2008</th>
+    <th>% teen births, 2005-2008</th>
+  </tr>
+    <% @records.each do |record| %>
+  <tr>
+    <td> <%= record.town %> </td>
+    <td> <%= record.total_population %> </td>
+    <td> <%= record.youth_population %> </td>
+    <td> <%= record.elder_population %> </td>
+    <td> <%= record.income %> </td>
+    <td> <%= record.poverty %> </td>
+    <td> <%= record.poverty_percentage %> </td>
+    <td> <%= record.prenatal_care %> </td>
+    <td> <%= record.c_section %> </td>
+    <td> <%= record.infant_deaths %> </td>
+    <td> <%= record.infant_mortality %> </td>
+    <td> <%= record.low_birthweight %> </td>
+    <td> <%= record.multiple_births %> </td>
+    <td> <%= record.publicly_financed_prenatal %> </td>
+    <td> <%= record.teen_preg %> </td>
+  </tr>
+    <% end %>
+<table>
 
 
