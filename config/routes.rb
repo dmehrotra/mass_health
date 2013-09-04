@@ -1,7 +1,5 @@
 Records::Application.routes.draw do
 
-  post '/town_health_record/index', to: 'town_health_record#index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

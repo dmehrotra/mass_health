@@ -1,7 +1,29 @@
-<%= form_tag do %>
-  <%= text_field :town_health_record, :town %>
+
+
+<%= form_tag( '/', method: 'get' ) do %>
+<%= select_tag 'column_select', "    <option>Geography</option>
+    <option>total pop, year 2005</option>
+    <option>age 0-19, year 2005</option>
+    <option>age 65+, year 2005</option>
+    <option>Per Capita Income, year 2000</option>
+    <option>Persons Living Below 200% Poverty, year 2000</option>
+    <option>% all Persons Living Below 200% Poverty Level, year 2000</option>
+    <option>% adequacy prenatal care (kotelchuck)</option>
+    <option>% C-section deliveries, 2005-2008</option>
+    <option>Number of infant deaths, 2005-2008</option>
+    <option>Infant mortality rate (deaths per 1000 live births), 2005-2008</option>
+    <option>% low birthweight 2005-2008</option>
+    <option>% multiple births, 2005-2008</option>
+    <option>% publicly financed prenatal care, 2005-2008</option>
+    <option>% teen births, 2005-2008</option>".html_safe %>
+  <%= text_field_tag 'input' %>
+
+  <%= label_tag 'Limit Search Amount:' %>
+  <%= text_field_tag 'limit', 'Enter a number' %>
+
   <%= submit_tag("Click") %>
 <% end %>
+
 
 <table>
   <tr>
