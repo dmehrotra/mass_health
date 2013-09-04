@@ -1,8 +1,7 @@
- <%= form_for @current_query, url: town_health_records_path do |f| %>
-   <%= f.text_field :town %>
-   <%= f.submit %>
-   <% end %>
-
+<%= form_tag do %>
+  <%= text_field :town_health_record, :town %>
+  <%= submit_tag("Click") %>
+<% end %>
 
 <ul>
 <% @records.each do |record| %>
