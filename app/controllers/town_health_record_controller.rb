@@ -1,11 +1,13 @@
 class TownHealthRecordController < ApplicationController
   def index
-    @current_query = TownHealthRecord.new
-    @records = TownHealthRecord.all
-  end
+    if params[:town_health_record] &&
+       params[:town_health_record][:town] &&
+       params[:town_health_record][:town].length > 0
 
-  def create
-  
+       @records = TownHealthRecord.where( town: params[:town_health_record][:town] )
+    else
+      @records = TownHealthRecord.all
+    end
   end
 
 

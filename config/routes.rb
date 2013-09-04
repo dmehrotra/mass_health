@@ -1,9 +1,12 @@
 Records::Application.routes.draw do
+
+  post '/town_health_record/index', to: 'town_health_record#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'town_health_record#index'
+  root 'town_health_record#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -12,7 +15,7 @@ Records::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-     resources :town_health_records
+  #   resources :town_health_records
 
   # Example resource route with options:
   #   resources :products do
@@ -39,7 +42,7 @@ Records::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

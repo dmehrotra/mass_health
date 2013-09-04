@@ -8,24 +8,27 @@
 
 
 require 'csv'
-CSV.foreach('db/mass_chip_data.csv', headers: true) do |row|
 
-    puts row
+def clean_int str
+  str.tr('$, ','') if !str.nil?
+end
+
+CSV.foreach('db/mass_chip_data.csv', headers: true) do |row|
 
     if TownHealthRecord.where(town: row['Geography']).size > 0
       #todo
     else
-      TownHealthRecord.new({   
+      TownHealthRecord.new({
         town: row['Geography'],
-        total_population: row['total pop, year 2005'],
-        youth_population: row['age 0-19, year 2005'],
-        elder_population: row['age 65+, year 2005'],
-        income: row['Per Capita Income, year 2000'],
-        poverty: row['Persons Living Below 200% Poverty, year 2000 '],
+        total_population: clean_int(row['total pop, year 2005']),
+        youth_population: clean_int(row['age 0-19, year 2005']),
+        elder_population: clean_int(row['age 65+, year 2005']),
+        income: clean_int(row['Per Capita Income, year 2000']),
+        poverty: clean_int(row['Persons Living Below 200% Poverty, year 2000 ']),
         poverty_percentage: row['% all Persons Living Below 200% Poverty Level, year 2000'],
         prenatal_care: row['% adequacy prenatal care (kotelchuck)'],
         c_section: row['% C-section deliveries, 2005-2008'],
-        infant_deaths: row['Number of infant deaths, 2005-2008'],
+        infant_deaths: clean_int(row['Number of infant deaths, 2005-2008']),
         infant_mortality: row['Infant mortality rate (deaths per 1000 live births), 2005-2008'],
         low_birthweight: row['% low birthweight 2005-2008'],
         multiple_births: row['% multiple births, 2005-2008'],
