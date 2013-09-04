@@ -1,5 +1,5 @@
 class TownHealthRecordController < ApplicationController
-  include TownHealthRecordHelper
+
   def index
 
     if params[:town] &&
