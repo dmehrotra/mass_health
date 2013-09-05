@@ -1,68 +1,48 @@
 
 
-<%= form_tag( '/', method: 'get' ) do %>
-<%= select_tag 'column_select', "    <option value = 'town'>Geography</option>
-    <option value = 'total_population'>total pop, year 2005</option>
-    <option value = 'youth_population'>age 0-19, year 2005</option>
-    <option value = 'elder_population'>age 65+, year 2005</option>
-    <option value = 'income'>Per Capita Income, year 2000</option>
-    <option value = 'poverty'>Persons Living Below 200% Poverty, year 2000</option>
-    <option value = 'poverty_percentage'>% all Persons Living Below 200% Poverty Level, year 2000</option>
-    <option value = 'prenatal_care'>% adequacy prenatal care (kotelchuck)</option>
-    <option value = 'c_section'>% C-section deliveries, 2005-2008</option>
-    <option value = 'infant_deaths'>Number of infant deaths, 2005-2008</option>
-    <option value = 'infant_mortality'>Infant mortality rate (deaths per 1000 live births), 2005-2008</option>
-    <option value = 'low_birthweight' >% low birthweight 2005-2008</option>
-    <option value = 'multiple_births'>% multiple births, 2005-2008</option>
-    <option value = 'publicly_financed_prenatal'>% publicly financed prenatal care, 2005-2008</option>
-    <option value = 'teen_preg'>% teen births, 2005-2008</option>".html_safe %>
-  
-
-    <%= label_tag 'Limit Search Amount:' %>
-    <%= text_field_tag 'limit', 'Enter a number' %>
-    <%= select_tag 'sort_order',  "<option value = 'ASC'>Ascending</option>
-    <option value = 'DESC'> Descending </option>".html_safe  %>
+<div>
+    <%= form_tag( '/', method: 'get' ) do %>
+        <%= select_tag 'column_select', column_options %>
+        <%= label_tag 'Limit Search Amount:' %>
+        <%= text_field_tag 'limit', @limit %>
+        <%= select_tag 'sort_order', order_by  %>
   <%= submit_tag("Click") %>
 <% end %>
 
+</div>
+
+<div>
+    <h1>Rails function</h1>
+    <h1>SQL equivelent</h1>
+</div>
+
+<div>
 
 <table>
   <tr>
-    <th>Geography</th>
-    <th>total pop, year 2005</th>
-    <th>age 0-19, year 2005</th>
-    <th>age 65+, year 2005</th>
-    <th>Per Capita Income, year 2000</th>
-    <th>Persons Living Below 200% Poverty, year 2000</th>
-    <th>% all Persons Living Below 200% Poverty Level, year 2000</th>
-    <th>% adequacy prenatal care (kotelchuck)</th>
-    <th>% C-section deliveries, 2005-2008</th>
-    <th>Number of infant deaths, 2005-2008</th>
-    <th>Infant mortality rate (deaths per 1000 live births), 2005-2008</th>
-    <th>% low birthweight 2005-2008</th>
-    <th>% multiple births, 2005-2008</th>
-    <th>% publicly financed prenatal care, 2005-2008</th>
-    <th>% teen births, 2005-2008</th>
+    <%= table_headers %>
   </tr>
-    <% @records.each do |record| %>
+  <% @records.each do |record| %>
   <tr>
-    <td> <%= record.town %> </td>
-    <td> <%= record.total_population %> </td>
-    <td> <%= record.youth_population %> </td>
-    <td> <%= record.elder_population %> </td>
-    <td> <%= record.income %> </td>
-    <td> <%= record.poverty %> </td>
-    <td> <%= record.poverty_percentage %> </td>
-    <td> <%= record.prenatal_care %> </td>
-    <td> <%= record.c_section %> </td>
-    <td> <%= record.infant_deaths %> </td>
-    <td> <%= record.infant_mortality %> </td>
-    <td> <%= record.low_birthweight %> </td>
-    <td> <%= record.multiple_births %> </td>
-    <td> <%= record.publicly_financed_prenatal %> </td>
-    <td> <%= record.teen_preg %> </td>
-  </tr>
-    <% end %>
+      <td> <%= record.town %> </td>
+      <td> <%= record.total_population %> </td>
+      <td> <%= record.youth_population %> </td>
+      <td> <%= record.elder_population %> </td>
+      <td> <%= record.income %> </td>
+      <td> <%= record.poverty %> </td>
+      <td> <%= record.poverty_percentage %> </td>
+      <td> <%= record.prenatal_care %> </td>
+      <td> <%= record.c_section %> </td>
+      <td> <%= record.infant_deaths %> </td>
+      <td> <%= record.infant_mortality %> </td>
+      <td> <%= record.low_birthweight %> </td>
+      <td> <%= record.multiple_births %> </td>
+      <td> <%= record.publicly_financed_prenatal %> </td>
+      <td> <%= record.teen_preg %> </td>
+    </tr>
+  <% end %>
 <table>
+
+</div>
 
 
