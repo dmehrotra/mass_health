@@ -52,4 +52,8 @@ module TownHealthRecordHelper
     "SELECT \"town_health_records\".* FROM \"town_health_records\" ORDER BY #{@column} #{@sort_order} LIMIT #{@limit}"
   end
 
+  def ingore_array_printer
+    "#{@ignore_array}"
+  end
+
 end
