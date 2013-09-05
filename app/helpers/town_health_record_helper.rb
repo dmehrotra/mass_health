@@ -54,7 +54,11 @@ module TownHealthRecordHelper
   end
 
   def create_sql_command
-    "SELECT \"town_health_records\".* FROM \"town_health_records\" ORDER BY #{@column} #{@sort_order} LIMIT #{@limit}"
+    if @ignore_string.length == 0
+      "SELECT \"town_health_records\".* FROM \"town_health_records\" ORDER BY #{@column} #{@sort_order} LIMIT #{@limit}"
+    else
+      "SELECT \"town_health_records\".* FROM \"town_health_records\" WHERE #{@ignore_string} ORDER BY #{@column} #{@sort_order} LIMIT #{@limit}"
+    end
   end
 
   def ingore_array_printer
