@@ -1,24 +1,40 @@
 
-<div>
-    <%= form_tag( '/', method: 'get' ) do %>
-        <%= select_tag 'column_select', column_options %>
-        <%= label_tag 'Limit Search Amount:' %>
-        <%= text_field_tag 'limit', @limit %>
-        <%= select_tag 'sort_order', order_by  %>
-        <%= text_field_tag 'ignore', @ingore_list %>
-  <%= submit_tag("Click") %>
-<% end %>
 
-</div>
+<div class='wrapper'>
+    <div class='form_wrapper'>
+        <%= form_tag( '/', method: 'get' ) do %>
+           <div class='bx'> 
+            <%= select_tag 'column_select', column_options %>
+            </div>
+            <div class='bx a'> 
+            <%= label_tag 'Limit Search Results: ' %>
+            
+            <%= text_field_tag 'limit', @limit %>      
+            </div>
+            <div class='bx'> 
+            <%= label_tag 'Order: ' %>
 
-<div>
+            <%= select_tag 'sort_order', order_by  %>
+          </div>
+          <div class='bx a'> 
+            <%= label_tag 'Exclude Towns: ' %>
+            <%= text_field_tag 'ignore', @ingore_list %><br>
+          </div>
+          <div class='bx'> 
+            <%= submit_tag("Filer Results") %>
+          </div>
+     
+      <% end %>
+    </div>
+
+<div class='commands'>
     <h1><%= create_rails_command %></h1>
     <h1><%= create_sql_command %></h1>
 </div>
 
 <div>
 
-<table>
+<table class='table table-striped table-hover'>
   <tr>
     <%= table_headers %>
   </tr>
@@ -46,3 +62,4 @@
 </div>
 
 
+</div>
