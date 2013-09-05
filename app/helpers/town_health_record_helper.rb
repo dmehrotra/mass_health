@@ -45,7 +45,12 @@ module TownHealthRecordHelper
 
 
   def create_rails_command
-    "TownHealthRecord.order(\"#{@column} #{@sort_order}\").limit(#{@limit})"
+    if @ignore_string.length == 0
+      "TownHealthRecord.order(\"#{@column} #{@sort_order}\").limit(#{@limit})"
+    else
+      "TownHealthRecord.where(\"#{@ignore_string}\").order(\"#{@column} #{@sort_order}\").limit(#{@limit})"
+    end
+
   end
 
   def create_sql_command
@@ -53,7 +58,7 @@ module TownHealthRecordHelper
   end
 
   def ingore_array_printer
-    "#{@ignore_array}"
+    "#{@ignore_string}"
   end
 
 end
