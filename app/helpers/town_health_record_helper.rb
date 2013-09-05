@@ -5,8 +5,24 @@ module TownHealthRecordHelper
   end
 
   def column_options
-    titles.map { | pair | "<option value='#{pair[0]}'>#{pair[1]}</option>" }.join.html_safe
+    arr = titles.map do | pair |
+      if pair[0] == @column
+        "<option value='#{pair[0]}' selected='selected' >#{pair[1]}</option>"
+      else
+        "<option value='#{pair[0]}' >#{pair[1]}</option>"
+      end
+    end
+    arr.join.html_safe
   end
+
+  def order_by
+    if @sort_order && @sort_order == 'DESC'
+      "<option value = 'ASC'>Ascending</option><option value = 'DESC' selected='selected'> Descending </option>".html_safe
+    else
+      "<option value = 'ASC' selected='selected'>Ascending</option><option value = 'DESC'> Descending </option>".html_safe
+    end
+  end
+
 
   def titles
     [
