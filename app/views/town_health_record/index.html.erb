@@ -5,6 +5,7 @@
         <%= label_tag 'Limit Search Amount:' %>
         <%= text_field_tag 'limit', @limit %>
         <%= select_tag 'sort_order', order_by  %>
+        <%= text_field_tag 'ignore', @ingore_list %>
   <%= submit_tag("Click") %>
 <% end %>
 
