@@ -3,8 +3,8 @@ class TownHealthRecordController < ApplicationController
   include TownHealthRecordHelper
 
   def index
-    if params[:limit].nil?
-      @limit = 25
+    if params[:limit].nil? || params[:limit].length == 0
+      @limit = TownHealthRecord.count
     else
       @limit = params[:limit].to_i
     end
